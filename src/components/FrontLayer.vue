@@ -196,6 +196,7 @@ export default {
         !this.isEighth &&
         !this.isNineth
       ) {
+        document.getElementById("_01").style.display = "none";
         this.isFilled = false;
       }
     },
