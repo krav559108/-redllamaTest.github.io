@@ -187,7 +187,6 @@ export default {
   computed: {
     disableLayer() {
       if (
-        !this.isFirst &&
         !this.isSecond &&
         !this.isThird &&
         !this.isFourth &&
