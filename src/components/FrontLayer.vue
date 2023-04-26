@@ -1,5 +1,5 @@
 <template>
-  <div class="_01" v-show="isFilled">
+  <div class="_01" v-if="isFilled">
     <div class="Group_13 fade-in" v-show="isActive">
       <img class="frontPhrase" src="../assets/frontPhrase.png" />
       <img class="stickersAction" src="../assets/stickersAction.png" />
@@ -10,18 +10,18 @@
       class="Group_10"
       @click="clickedOutside"
       @v-touch="clickedOutside"
-      v-show="isFilled"
+      v-if="isFilled"
     >
       <Moveable
         class="moveableContainer"
         v-bind="moveable"
-        v-show="isSecond"
+        v-if="isSecond"
         @drag="handleDrag"
         @dragEnd="disableSticker(2)"
       >
         <img
           class="Group_2 sticker85"
-          v-show="isSecond"
+
           src="../assets/Group-2.png"
         />
       </Moveable>
@@ -30,11 +30,11 @@
         v-bind="moveable"
         @drag="handleDrag"
         @dragEnd="disableSticker(5)"
-        v-show="isFifth"
+        v-if="isFifth"
       >
         <img
           class="Group_5 sticker85"
-          v-show="isFifth"
+
           src="../assets/Group-5.png"
         />
       </Moveable>
@@ -42,7 +42,7 @@
         class="moveableContainer"
         v-bind="moveable"
         @drag="handleDrag"
-        v-show="isNineth"
+        v-if="isNineth"
         @dragEnd="disableSticker(9)"
       >
         <img
@@ -55,12 +55,12 @@
         class="moveableContainer"
         v-bind="moveable"
         @drag="handleDrag"
-        v-show="isThird"
+        v-if="isThird"
         @dragEnd="disableSticker(3)"
       >
         <img
           class="Group_3 sticker80"
-          v-show="isThird"
+
           src="../assets/Group-3.png"
         />
       </Moveable>
@@ -69,11 +69,11 @@
         v-bind="moveable"
         @drag="handleDrag"
         @dragEnd="disableSticker(4)"
-        v-show="isFourth"
+        v-if="isFourth"
       >
         <img
           class="Group_4 sticker60"
-          v-show="isFourth"
+
           src="../assets/Group-4.png"
         />
       </Moveable>
@@ -82,11 +82,11 @@
         v-bind="moveable"
         @drag="handleDrag"
         @dragEnd="disableSticker(8)"
-        v-show="isEighth"
+        v-if="isEighth"
       >
         <img
           class="Group_8 sticker60"
-          v-show="isEighth"
+
           src="../assets/Group-8.png"
         />
       </Moveable>
@@ -95,11 +95,11 @@
         v-bind="moveable"
         @drag="handleDrag"
         @dragEnd="disableSticker(6)"
-        v-show="isSixth"
+        v-if="isSixth"
       >
         <img
           class="Group_6 sticker65"
-          v-show="isSixth"
+
           src="../assets/Group-6.png"
         />
       </Moveable>
@@ -108,11 +108,11 @@
         v-bind="moveable"
         @drag="handleDrag"
         @dragEnd="disableSticker(7)"
-        v-show="isSeventh"
+        v-if="isSeventh"
       >
         <img
           class="Group_7 sticker80"
-          v-show="isSeventh"
+
           src="../assets/Group-7.png"
         />
       </Moveable>
@@ -148,7 +148,6 @@ export default {
   },
   methods: {
     clickedOutside() {
-      console.log("clicked outside");
       this.isActive = false;
     },
     handleDrag({ target, transform }) {
