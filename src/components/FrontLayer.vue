@@ -1,5 +1,5 @@
 <template>
-  <div class="_01" v-if="isFilled">
+  <div class="_01" v-if="isFilled" id="01">
     <div class="Group_13 fade-in" v-show="isActive">
       <img class="frontPhrase" src="../assets/frontPhrase.png" />
       <img class="stickersAction" src="../assets/stickersAction.png" />
@@ -19,11 +19,7 @@
         @drag="handleDrag"
         @dragEnd="disableSticker(2)"
       >
-        <img
-          class="Group_2 sticker85"
-
-          src="../assets/Group-2.png"
-        />
+        <img class="Group_2 sticker85" src="../assets/Group-2.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
@@ -32,11 +28,7 @@
         @dragEnd="disableSticker(5)"
         v-if="isFifth"
       >
-        <img
-          class="Group_5 sticker85"
-
-          src="../assets/Group-5.png"
-        />
+        <img class="Group_5 sticker85" src="../assets/Group-5.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
@@ -58,11 +50,7 @@
         v-if="isThird"
         @dragEnd="disableSticker(3)"
       >
-        <img
-          class="Group_3 sticker80"
-
-          src="../assets/Group-3.png"
-        />
+        <img class="Group_3 sticker80" src="../assets/Group-3.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
@@ -71,11 +59,7 @@
         @dragEnd="disableSticker(4)"
         v-if="isFourth"
       >
-        <img
-          class="Group_4 sticker60"
-
-          src="../assets/Group-4.png"
-        />
+        <img class="Group_4 sticker60" src="../assets/Group-4.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
@@ -84,11 +68,7 @@
         @dragEnd="disableSticker(8)"
         v-if="isEighth"
       >
-        <img
-          class="Group_8 sticker60"
-
-          src="../assets/Group-8.png"
-        />
+        <img class="Group_8 sticker60" src="../assets/Group-8.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
@@ -97,11 +77,7 @@
         @dragEnd="disableSticker(6)"
         v-if="isSixth"
       >
-        <img
-          class="Group_6 sticker65"
-
-          src="../assets/Group-6.png"
-        />
+        <img class="Group_6 sticker65" src="../assets/Group-6.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
@@ -110,11 +86,7 @@
         @dragEnd="disableSticker(7)"
         v-if="isSeventh"
       >
-        <img
-          class="Group_7 sticker80"
-
-          src="../assets/Group-7.png"
-        />
+        <img class="Group_7 sticker80" src="../assets/Group-7.png" />
       </Moveable>
     </div>
   </div>
@@ -196,6 +168,7 @@ export default {
         !this.isNineth
       ) {
         this.isFilled = false;
+        console.log(111);
       }
     },
   },
