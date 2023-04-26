@@ -107,7 +107,7 @@ export default {
         throttleDrag: 0,
       },
       isActive: true,
-      isFilled: true,
+      // isFilled: true,
       isSecond: true,
       isThird: true,
       isFourth: true,
@@ -156,7 +156,15 @@ export default {
     },
   },
   computed: {
-    disableLayer() {
+    isFilled() {
+      return this.isSecond ||
+        this.isThird ||
+        this.isFourth ||
+        this.isFifth ||
+        this.isSixth ||
+        this.isSeventh ||
+        this.isEighth ||
+        this.isNineth
       if (
         !this.isSecond &&
         !this.isThird &&
@@ -167,8 +175,7 @@ export default {
         !this.isEighth &&
         !this.isNineth
       ) {
-        this.isFilled = false;
-        console.log(111);
+        return this.isFilled = false;
       }
     },
   },
