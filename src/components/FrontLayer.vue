@@ -165,18 +165,6 @@ export default {
         this.isSeventh ||
         this.isEighth ||
         this.isNineth
-      if (
-        !this.isSecond &&
-        !this.isThird &&
-        !this.isFourth &&
-        !this.isFifth &&
-        !this.isSixth &&
-        !this.isSeventh &&
-        !this.isEighth &&
-        !this.isNineth
-      ) {
-        return this.isFilled = false;
-      }
     },
   },
 };
