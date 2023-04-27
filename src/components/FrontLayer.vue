@@ -1,5 +1,5 @@
 <template>
-  <div class="_01" v-if="isFilled" id="01">
+  <div class="_01" ref="mainContainer">
     <div class="Group_13 fade-in" v-show="isActive">
       <img class="frontPhrase" src="../assets/frontPhrase.png" />
       <img class="stickersAction" src="../assets/stickersAction.png" />
@@ -10,32 +10,53 @@
       class="Group_10"
       @click="clickedOutside"
       @v-touch="clickedOutside"
-      v-if="isFilled"
+      ref="frontContainer"
     >
       <Moveable
         class="moveableContainer"
-        v-bind="moveable"
         v-if="isSecond"
-        @drag="handleDrag"
-        @dragEnd="disableSticker(2)"
+        ref="moveableRef"
+        :target="'.target'"
+        :draggable="true"
+        :throttleDrag="throttleDrag"
+        :edgeDraggable="edgeDraggable"
+        :startDragRotate="startDragRotate"
+        :throttleDragRotate="throttleDragRotate"
+        @dragStart="onDragStart"
+        @drag="onDrag"
+        @dragEnd="onDragEnd"
       >
         <img class="Group_2 sticker85" src="../assets/Group-2.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
-        v-bind="moveable"
-        @drag="handleDrag"
-        @dragEnd="disableSticker(5)"
         v-if="isFifth"
+        ref="moveableRef"
+        :target="'.target'"
+        :draggable="true"
+        :throttleDrag="throttleDrag"
+        :edgeDraggable="edgeDraggable"
+        :startDragRotate="startDragRotate"
+        :throttleDragRotate="throttleDragRotate"
+        @dragStart="onDragStart"
+        @drag="onDrag"
+        @dragEnd="onDragEnd"
       >
         <img class="Group_5 sticker85" src="../assets/Group-5.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
-        v-bind="moveable"
-        @drag="handleDrag"
         v-if="isNineth"
-        @dragEnd="disableSticker(9)"
+        ref="moveableRef"
+        :target="'.target'"
+        :draggable="true"
+        :throttleDrag="throttleDrag"
+        :edgeDraggable="edgeDraggable"
+        :startDragRotate="startDragRotate"
+        :throttleDragRotate="throttleDragRotate"
+        @dragStart="onDragStart"
+        @drag="onDrag"
+        @dragEnd="onDragEnd"
       >
         <img
           class="Group_9 sticker70"
@@ -45,46 +66,81 @@
       </Moveable>
       <Moveable
         class="moveableContainer"
-        v-bind="moveable"
-        @drag="handleDrag"
         v-if="isThird"
-        @dragEnd="disableSticker(3)"
+        ref="moveableRef"
+        :target="'.target'"
+        :draggable="true"
+        :throttleDrag="throttleDrag"
+        :edgeDraggable="edgeDraggable"
+        :startDragRotate="startDragRotate"
+        :throttleDragRotate="throttleDragRotate"
+        @dragStart="onDragStart"
+        @drag="onDrag"
+        @dragEnd="onDragEnd"
       >
         <img class="Group_3 sticker80" src="../assets/Group-3.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
-        v-bind="moveable"
-        @drag="handleDrag"
-        @dragEnd="disableSticker(4)"
         v-if="isFourth"
+        ref="moveableRef"
+        :target="'.target'"
+        :draggable="true"
+        :throttleDrag="throttleDrag"
+        :edgeDraggable="edgeDraggable"
+        :startDragRotate="startDragRotate"
+        :throttleDragRotate="throttleDragRotate"
+        @dragStart="onDragStart"
+        @drag="onDrag"
+        @dragEnd="onDragEnd"
       >
         <img class="Group_4 sticker60" src="../assets/Group-4.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
-        v-bind="moveable"
-        @drag="handleDrag"
-        @dragEnd="disableSticker(8)"
         v-if="isEighth"
+        ref="moveableRef"
+        :target="'.target'"
+        :draggable="true"
+        :throttleDrag="throttleDrag"
+        :edgeDraggable="edgeDraggable"
+        :startDragRotate="startDragRotate"
+        :throttleDragRotate="throttleDragRotate"
+        @dragStart="onDragStart"
+        @drag="onDrag"
+        @dragEnd="onDragEnd"
       >
         <img class="Group_8 sticker60" src="../assets/Group-8.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
-        v-bind="moveable"
-        @drag="handleDrag"
-        @dragEnd="disableSticker(6)"
         v-if="isSixth"
+        ref="moveableRef"
+        :target="'.target'"
+        :draggable="true"
+        :throttleDrag="throttleDrag"
+        :edgeDraggable="edgeDraggable"
+        :startDragRotate="startDragRotate"
+        :throttleDragRotate="throttleDragRotate"
+        @dragStart="onDragStart"
+        @drag="onDrag"
+        @dragEnd="onDragEnd"
       >
         <img class="Group_6 sticker65" src="../assets/Group-6.png" />
       </Moveable>
       <Moveable
         class="moveableContainer"
-        v-bind="moveable"
-        @drag="handleDrag"
-        @dragEnd="disableSticker(7)"
         v-if="isSeventh"
+        ref="moveableRef"
+        :target="'.target'"
+        :draggable="true"
+        :throttleDrag="throttleDrag"
+        :edgeDraggable="edgeDraggable"
+        :startDragRotate="startDragRotate"
+        :throttleDragRotate="throttleDragRotate"
+        @dragStart="onDragStart"
+        @drag="onDrag"
+        @dragEnd="onDragEnd"
       >
         <img class="Group_7 sticker80" src="../assets/Group-7.png" />
       </Moveable>
@@ -101,13 +157,48 @@ export default {
     Vue2TouchEvents,
   },
   data() {
+    const containerScale = 1;
+    const throttleDrag = 1;
+    const edgeDraggable = false;
+    const startDragRotate = 0;
+    const throttleDragRotate = 0;
+    const xInputRef = null;
+    const yInputRef = null;
+    const moveableRef = null;
+    const requestCallbacks = (() => {
+      function request() {
+        moveableRef.request(
+          "draggable",
+          {
+            x: parseInt(xInputRef.value),
+            y: parseInt(yInputRef.value),
+          },
+          true
+        );
+      }
+      return {
+        onInput(e) {
+          const ev = e.nativeEvent || e;
+          if (typeof ev.data === "undefined") {
+            request();
+          }
+        },
+        onKeyUp(e) {
+          e.stopPropagation();
+          if (e.keyCode === 13) {
+            request();
+          }
+        },
+      };
+    })();
+
     return {
-      moveable: {
-        draggable: true,
-        throttleDrag: 0,
-      },
+      // moveable: {
+      //   draggable: true,
+      //   throttleDrag: 0,
+      // },
       isActive: true,
-      // isFilled: true,
+
       isSecond: true,
       isThird: true,
       isFourth: true,
@@ -116,56 +207,56 @@ export default {
       isSeventh: true,
       isEighth: true,
       isNineth: true,
+
+      xStart: 0,
+      xEnd: 0,
+      yStart: 0,
+      yEnd: 0,
+
+      containerScale,
+      throttleDrag,
+      edgeDraggable,
+      startDragRotate,
+      throttleDragRotate,
+      moveableRef,
+      requestCallbacks,
     };
   },
+
   methods: {
     clickedOutside() {
       this.isActive = false;
     },
-    handleDrag({ target, transform }) {
-      transform ? (this.isActive = false) : false;
-      target.style.transform = transform;
+    onDrag(e) {
+      e.target.style.transform = e.transform;
+      e.transform ? (this.isActive = false) : false;
     },
-    disableSticker(num) {
-      switch (num) {
-        case 2:
-          this.isSecond = false;
-          break;
-        case 3:
-          this.isThird = false;
-          break;
-        case 4:
-          this.isFourth = false;
-          break;
-        case 5:
-          this.isFifth = false;
-          break;
-        case 6:
-          this.isSixth = false;
-          break;
-        case 7:
-          this.isSeventh = false;
-          break;
-        case 8:
-          this.isEighth = false;
-          break;
-        case 9:
-          this.isNineth = false;
-          break;
-      }
+    onDragStart(e) {
+      requestAnimationFrame(() => {
+        this.xStart = e.clientX;
+        this.yStart = e.clientY;
+      });
+    },
+    onDragEnd(e) {
+      requestAnimationFrame(() => {
+        this.xEnd = e.clientX;
+        this.yEnd = e.clientY;
+        let rule1 = this.xEnd - this.xStart;
+        let rule2 = this.yEnd - this.yStart;
+        if (rule1 > 100 || rule1 < -100 || rule2 > 100 || rule2 < -100) {
+          e.target.remove();
+          console.log("deleted");
+        }
+        if (this.$refs.frontContainer.hasChildNodes() == false) {
+          console.log("empty container");
+          this.$refs.mainContainer.remove();
+        }
+      });
     },
   },
-  computed: {
-    isFilled() {
-      return this.isSecond ||
-        this.isThird ||
-        this.isFourth ||
-        this.isFifth ||
-        this.isSixth ||
-        this.isSeventh ||
-        this.isEighth ||
-        this.isNineth
-    },
+  computed: {},
+  mounted() {
+    this.moveableRef = this.$refs.moveableRef;
   },
 };
 </script>
