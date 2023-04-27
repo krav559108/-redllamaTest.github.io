@@ -245,10 +245,8 @@ export default {
         let rule2 = this.yEnd - this.yStart;
         if (rule1 > 100 || rule1 < -100 || rule2 > 100 || rule2 < -100) {
           e.target.remove();
-          console.log("deleted");
         }
         if (this.$refs.frontContainer.hasChildNodes() == false) {
-          console.log("empty container");
           this.$refs.mainContainer.remove();
         }
       });
