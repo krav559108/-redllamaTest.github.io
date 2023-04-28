@@ -261,9 +261,9 @@ export default {
 
 <style>
 .moveableContainer {
-  position: absolute;
+  /* position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100%; */
 }
 .moveable-line {
   display: none !important;
@@ -323,7 +323,9 @@ export default {
   width: 20%;
   transform: translateX(-50%);
 }
-.frontBackground {
+.moveable-control-box {
+  width: 100%;
+  height: 100%;
 }
 .Group_10 {
   position: absolute;

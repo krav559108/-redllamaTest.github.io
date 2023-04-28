@@ -6,10 +6,10 @@
       <img class="packs mb-10" src="../assets/packs.png" />
       <img class="btn" src="../assets/btn.png" @click="redirect" />
     </div>
+    <img class="rules" src="../assets/rules.png" />
     <div style="display: block; padding: 10px">
-      <img class="rules" src="../assets/rules.png" />
     </div>
-    <front-layer></front-layer>
+    <front-layer ></front-layer>
   </div>
 </template>
 
@@ -51,7 +51,8 @@ img {
   flex-direction: column;
   width: 100%;
   margin: auto;
-  max-width: 800px;
+  max-width: 400px;
+
 }
 .innerContainer {
   display: flex;
@@ -63,6 +64,7 @@ img {
 ._02 {
   display: flex;
   justify-content: center;
+
 }
 .bgr {
   width: 100%;
