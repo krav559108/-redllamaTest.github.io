@@ -63,7 +63,6 @@ img {
 ._02 {
   display: flex;
   justify-content: center;
-  overflow: auto;
 }
 .bgr {
   width: 100%;
