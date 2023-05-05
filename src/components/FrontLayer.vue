@@ -30,7 +30,6 @@
       />
       <img
         class="Group_9 sticker70"
-        v-show="isNineth"
         src="../assets/Group-9.png"
         :style="{ transform: `translateX(${position}px)` }"
         ref="rect3"
@@ -91,6 +90,7 @@ export default {
       currentX: 0,
       isDragging: false,
       isActive: true,
+      isCleared: false,
     };
   },
 
@@ -135,6 +135,7 @@ export default {
       this.activeRect = event.target;
       window.addEventListener("touchmove", this.handleTouchMove);
       window.addEventListener("touchend", this.handleTouchEnd);
+      this.isActive = false;
     },
     handleTouchMove(event) {
       const diffX = event.touches[0].clientX - this.startX;
@@ -161,14 +162,19 @@ export default {
 
       window.removeEventListener("touchmove", this.handleTouchMove);
       window.removeEventListener("touchend", this.handleTouchEnd);
+
+      console.log(this.$refs.frontContainer.hasChildNodes());
+      if (this.$refs.frontContainer.hasChildNodes() == false) {
+        this.$refs.mainContainer.remove();
+      }
     },
   },
 };
 </script>
 
 <style>
-.moveableContainer img {
-  z-index: 1000;
+img {
+  touch-action: none; /* to prevent scrolling on mobile */
 }
 .moveable-line {
   display: none !important;
