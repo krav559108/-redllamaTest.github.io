@@ -77,6 +77,7 @@
         @dragStart="onDragStart"
         @drag="onDrag"
         @dragEnd="onDragEnd"
+        style="z-index: 50;"
       >
         <img class="Group_3 sticker80" src="../assets/Group-3.png" />
       </Moveable>
@@ -212,6 +213,7 @@ export default {
       xEnd: 0,
       yStart: 0,
       yEnd: 0,
+      zIndex: 0,
 
       containerScale,
       throttleDrag,
@@ -230,11 +232,13 @@ export default {
     onDrag(e) {
       e.target.style.transform = e.transform;
       e.transform ? (this.isActive = false) : false;
+      console.log(this.zIndex);
     },
     onDragStart(e) {
       requestAnimationFrame(() => {
         this.xStart = e.clientX;
         this.yStart = e.clientY;
+        this.zIndex = e.target.style.zIndex;
       });
     },
     onDragEnd(e) {
@@ -260,10 +264,9 @@ export default {
 </script>
 
 <style>
-.moveableContainer {
-  /* position: absolute;
-  width: 100%;
-  height: 100%; */
+.moveableContainer img {
+  z-index: 1000;
+
 }
 .moveable-line {
   display: none !important;
@@ -356,7 +359,7 @@ export default {
 .Group_3 {
   position: absolute;
   right: 0;
-  z-index: 15;
+  z-index: inherit;
 }
 .Group_4 {
   position: absolute;

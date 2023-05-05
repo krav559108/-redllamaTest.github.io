@@ -1,17 +1,20 @@
 <template>
   <div class="main">
-    <background-layer></background-layer>
+    <!-- <background-layer></background-layer> -->
+    <test></test>
   </div>
 </template>
 
 <script>
-import BackgroundLayer from './components/BgrLayer.vue';
+// import BackgroundLayer from './components/BgrLayer.vue';
+import Test from './components/test.vue';
 
 
 export default {
   name: "App",
   components: {
-    BackgroundLayer,
+    // BackgroundLayer,
+    Test,
   },
 };
 </script>
