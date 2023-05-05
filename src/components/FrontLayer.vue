@@ -12,22 +12,30 @@
       @v-touch="clickedOutside"
       ref="frontContainer"
     >
+
+    <!-- Сходить в магазин  -->
       <img
-        class="Group_2 sticker85"
-        src="../assets/Group-2.png"
+        class="Group_2"
+        src="../assets/Group-2.png" 
         :style="{ transform: `translateX(${position}px)` }"
         ref="rect1"
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
       />
+
+
+      <!-- Помыть посуду  -->
       <img
-        class="Group_5 sticker85"
+        class="Group_5"
         src="../assets/Group-5.png"
         :style="{ transform: `translateX(${position}px)` }"
         ref="rect2"
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
       />
+
+
+      <!-- Погладить рубашки  -->
       <img
         class="Group_9 sticker70"
         src="../assets/Group-9.png"
@@ -36,6 +44,9 @@
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
       />
+
+
+      <!-- Выбрать плитку для кухни  -->
       <img
         class="Group_3 sticker80"
         src="../assets/Group-3.png"
@@ -44,6 +55,9 @@
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
       />
+
+
+      <!-- Доделать отчет после работы -->
       <img
         class="Group_4 sticker60"
         src="../assets/Group-4.png"
@@ -52,6 +66,9 @@
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
       />
+
+
+      <!-- Заехать на почту  -->
       <img
         class="Group_8 sticker60"
         src="../assets/Group-8.png"
@@ -60,6 +77,9 @@
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
       />
+
+
+      <!-- Испечь пирог для гостей  -->
       <img
         class="Group_6 sticker65"
         src="../assets/Group-6.png"
@@ -68,6 +88,9 @@
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
       />
+
+
+      <!-- Полить растения соседей  -->
       <img
         class="Group_7 sticker80"
         src="../assets/Group-7.png"
@@ -246,17 +269,21 @@ img {
   height: 100%;
   z-index: 19;
 }
-.Group_5 {
-  position: absolute;
-  left: 10%;
-  bottom: 6%;
-  z-index: 18;
-}
 .Group_2 {
   position: absolute;
-  left: 4%;
-  top: 5%;
+  left: 20%;
+  top: 8%;
   z-index: 17;
+  rotate: 20deg;
+  width: 60%;
+}
+.Group_5 {
+  position: absolute;
+  left: 15%;
+  bottom: 10%;
+  z-index: 18;
+  width: 65%;
+  rotate: -20deg;
 }
 .Group_9 {
   position: absolute;
@@ -267,7 +294,7 @@ img {
 .Group_3 {
   position: absolute;
   right: 0;
-  z-index: inherit;
+  z-index: 15;
 }
 .Group_4 {
   position: absolute;
