@@ -118,7 +118,9 @@ export default {
     return {
       position: 0,
       startX: 0,
+      startY: 0,
       currentX: 0,
+      currentY: 0,
       isDragging: false,
       isActive: true,
       isCleared: false,
@@ -131,6 +133,7 @@ export default {
     },
     handleMouseDown(event) {
       this.startX = event.clientX;
+      this.startY = event.clientY;
       this.activeRect = event.target;
       window.addEventListener("mousemove", this.handleMouseMove);
       window.addEventListener("mouseup", this.handleMouseUp);
@@ -138,9 +141,12 @@ export default {
     },
     handleMouseMove(event) {
       const diffX = event.clientX - this.startX;
+      const diffY = event.clientY - this.startY;
       this.currentX = diffX;
+      this.currentY = diffY;
 
-      this.activeRect.style.transform = `translateX(${this.currentX}px)`;
+      this.activeRect.style.transform = `translate(${this.currentX}px, ${this.currentY}px)`;
+      // this.activeRect.style.transform = `translateY(${this.currentY}px)`;
     },
     handleMouseUp() {
       const rectBounds = this.activeRect.getBoundingClientRect();
@@ -157,6 +163,8 @@ export default {
 
       this.startX = 0;
       this.currentX = 0;
+      this.startY = 0;
+      this.currentY = 0;
       this.activeRect = null;
 
       window.removeEventListener("mousemove", this.handleMouseMove);
@@ -169,6 +177,7 @@ export default {
     },
     handleTouchStart(event) {
       this.startX = event.touches[0].clientX;
+      this.startY = event.touches[0].clientY;
       this.activeRect = event.target;
       window.addEventListener("touchmove", this.handleTouchMove);
       window.addEventListener("touchend", this.handleTouchEnd);
@@ -176,9 +185,11 @@ export default {
     },
     handleTouchMove(event) {
       const diffX = event.touches[0].clientX - this.startX;
+      const diffY = event.touches[0].clientY - this.startY;
       this.currentX = diffX;
-
-      this.activeRect.style.transform = `translateX(${this.currentX}px)`;
+      this.currentY = diffY;
+      
+      this.activeRect.style.transform = `translate(${this.currentX}px, ${this.currentY}px)`;
     },
     handleTouchEnd() {
       const rectBounds = this.activeRect.getBoundingClientRect();
