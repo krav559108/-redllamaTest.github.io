@@ -1,6 +1,6 @@
 <template>
   <div class="_01" ref="mainContainer">
-    <div class="Group_13 fade-in" v-show="isActive">
+    <div class="Group_13 fade-in" v-if="isActive">
       <img class="frontPhrase" src="../assets/frontPhrase.png" />
       <img class="stickersAction" src="../assets/stickersAction.png" />
       <img class="arrows" src="../assets/arrows.png" />
@@ -274,7 +274,6 @@ img {
   left: 20%;
   top: 8%;
   z-index: 17;
-  rotate: 20deg;
   width: 60%;
 }
 .Group_5 {
@@ -283,7 +282,6 @@ img {
   bottom: 10%;
   z-index: 18;
   width: 65%;
-  rotate: -20deg;
 }
 .Group_9 {
   position: absolute;
