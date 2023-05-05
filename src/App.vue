@@ -23,9 +23,8 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
   overflow-x: hidden;
+  overflow-y: auto;
 }
 .main {
   box-sizing: border-box;
