@@ -1,19 +1,19 @@
 <template>
   <div class="main">
     <background-layer></background-layer>
-    <!-- <Rectangle /> -->
+
   </div>
 </template>
 
 <script>
 import BackgroundLayer from "./components/BgrLayer.vue";
-import Rectangle from "./components/test.vue";
+
 
 export default {
   name: "App",
   components: {
     BackgroundLayer,
-    Rectangle,
+
   },
 };
 </script>

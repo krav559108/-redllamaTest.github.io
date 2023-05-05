@@ -1,11 +1,20 @@
 <template>
   <div class="_02 imgContainer">
     <div class="innerContainer">
-      <img class="catchPhrase" src="../assets/catchPhrase.png" draggable="false" />
-      <img class="logo mb-10" src="../assets/logo.png" draggable="false"/>
-      <img class="packs mb-10" src="../assets/packs.png" draggable="false"/>
-      <img class="btn" src="../assets/btn.png" @click="redirect" draggable="false" />
-      <img class="rules" src="../assets/rules.png" draggable="false"/>
+      <img
+        class="catchPhrase"
+        src="../assets/catchPhrase.png"
+        draggable="false"
+      />
+      <img class="logo pb-10" src="../assets/logo.png" draggable="false" />
+      <img class="packs pb-10" src="../assets/packs.png" draggable="false" />
+      <img
+        class="btn pb-10"
+        src="../assets/btn.png"
+        @click="redirect"
+        draggable="false"
+      />
+      <img class="rules" src="../assets/rules.png" draggable="false" />
     </div>
     <front-layer ></front-layer>
   </div>
@@ -30,15 +39,12 @@ export default {
 </script>
 
 <style>
-.mb-5 {
-  margin-bottom: 5px;
-}
-.mb-10 {
-  margin-bottom: 10px;
-}
 img {
   display: block;
   width: 100%;
+}
+.pb-10 {
+  /* padding-bottom: 5%; */
 }
 .imgContainer {
   position: relative;
@@ -51,24 +57,25 @@ img {
   margin: auto;
   max-width: 400px;
   max-height: 100vh;
-
 }
 .innerContainer {
   display: flex;
   flex-direction: column;
-
   margin: auto;
+  height: 100%;
   padding: 5% 10% 2%;
 }
 ._02 {
   display: flex;
   justify-content: center;
+
+  max-width: 800px;
+  max-height: 1200px;
 }
 .bgr {
   width: 100%;
   height: 100%;
-  max-width: 800px;
-  max-height: 1200px;
+
   display: block;
   object-fit: cover;
   z-index: 2;
@@ -82,7 +89,7 @@ img {
 }
 .rules {
   object-fit: contain;
-  transform: scaleX(125%);
+  transform: scaleX(120%);
 }
 .catchPhrase {
   object-fit: contain;
@@ -90,7 +97,7 @@ img {
 
 .packs {
   margin: 3% 0;
-  transform: scale(115%);
+  transform: scale(100%);
   object-fit: contain;
 }
 </style>
