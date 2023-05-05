@@ -1,5 +1,5 @@
 <template>
-  <div class="_01" ref="mainContainer">
+  <div class="_01" ref="mainContainer" v-if="!isCleared">
     <div class="Group_13 fade-in" v-if="isActive">
       <img class="frontPhrase" src="../assets/frontPhrase.png" />
       <img class="stickersAction" src="../assets/stickersAction.png" />
@@ -21,6 +21,7 @@
         ref="rect1"
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
+        draggable="false"
       />
 
 
@@ -32,6 +33,7 @@
         ref="rect2"
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
+        draggable="false"
       />
 
 
@@ -43,6 +45,7 @@
         ref="rect3"
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
+        draggable="false"
       />
 
 
@@ -54,6 +57,7 @@
         ref="rect4"
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
+        draggable="false"
       />
 
 
@@ -65,6 +69,7 @@
         ref="rect5"
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
+        draggable="false"
       />
 
 
@@ -76,6 +81,7 @@
         ref="rect6"
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
+        draggable="false"
       />
 
 
@@ -87,6 +93,7 @@
         ref="rect7"
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
+        draggable="false"
       />
 
 
@@ -98,6 +105,7 @@
         ref="rect8"
         @mousedown="handleMouseDown"
         @touchstart="handleTouchStart"
+        draggable="false"
       />
     </div>
   </div>
@@ -126,6 +134,7 @@ export default {
       this.activeRect = event.target;
       window.addEventListener("mousemove", this.handleMouseMove);
       window.addEventListener("mouseup", this.handleMouseUp);
+      this.isActive = false;
     },
     handleMouseMove(event) {
       const diffX = event.clientX - this.startX;
@@ -152,6 +161,11 @@ export default {
 
       window.removeEventListener("mousemove", this.handleMouseMove);
       window.removeEventListener("mouseup", this.handleMouseUp);
+
+      console.log(this.$refs.frontContainer.hasChildNodes());
+      if (this.$refs.frontContainer.hasChildNodes() == false) {
+        this.$refs.mainContainer.remove();
+      }
     },
     handleTouchStart(event) {
       this.startX = event.touches[0].clientX;

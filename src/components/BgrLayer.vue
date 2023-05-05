@@ -5,9 +5,7 @@
       <img class="logo mb-10" src="../assets/logo.png" />
       <img class="packs mb-10" src="../assets/packs.png" />
       <img class="btn" src="../assets/btn.png" @click="redirect" />
-    </div>
-    <img class="rules" src="../assets/rules.png" />
-    <div style="display: block; padding: 10px">
+      <img class="rules" src="../assets/rules.png" />
     </div>
     <front-layer ></front-layer>
   </div>
@@ -52,6 +50,7 @@ img {
   width: 100%;
   margin: auto;
   max-width: 400px;
+  max-height: 100vh;
 
 }
 .innerContainer {
