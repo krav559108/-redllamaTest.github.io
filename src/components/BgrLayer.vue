@@ -1,11 +1,11 @@
 <template>
   <div class="_02 imgContainer">
     <div class="innerContainer">
-      <img class="catchPhrase" src="../assets/catchPhrase.png" />
-      <img class="logo mb-10" src="../assets/logo.png" />
-      <img class="packs mb-10" src="../assets/packs.png" />
-      <img class="btn" src="../assets/btn.png" @click="redirect" />
-      <img class="rules" src="../assets/rules.png" />
+      <img class="catchPhrase" src="../assets/catchPhrase.png" draggable="false" />
+      <img class="logo mb-10" src="../assets/logo.png" draggable="false"/>
+      <img class="packs mb-10" src="../assets/packs.png" draggable="false"/>
+      <img class="btn" src="../assets/btn.png" @click="redirect" draggable="false" />
+      <img class="rules" src="../assets/rules.png" draggable="false"/>
     </div>
     <front-layer ></front-layer>
   </div>
