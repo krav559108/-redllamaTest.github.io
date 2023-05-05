@@ -58,7 +58,7 @@ img {
   flex-direction: column;
 
   margin: auto;
-  padding: 5% 10% 5%;
+  padding: 5% 10% 2%;
 }
 ._02 {
   display: flex;
@@ -83,13 +83,14 @@ img {
 }
 .rules {
   object-fit: contain;
+  transform: scaleX(125%);
 }
 .catchPhrase {
   object-fit: contain;
 }
 
 .packs {
-  padding: 15px 0;
+  margin: 3% 0;
   transform: scale(115%);
   object-fit: contain;
 }
