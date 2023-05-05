@@ -12,216 +12,85 @@
       @v-touch="clickedOutside"
       ref="frontContainer"
     >
-      <Moveable
-        class="moveableContainer"
-        v-if="isSecond"
-        ref="moveableRef"
-        :target="'.target'"
-        :draggable="true"
-        :throttleDrag="throttleDrag"
-        :edgeDraggable="edgeDraggable"
-        :startDragRotate="startDragRotate"
-        :throttleDragRotate="throttleDragRotate"
-        @dragStart="onDragStart"
-        @drag="onDrag"
-        @dragEnd="onDragEnd"
-      >
-        <img class="Group_2 sticker85" src="../assets/Group-2.png" />
-      </Moveable>
-      <Moveable
-        class="moveableContainer"
-        v-if="isFifth"
-        ref="moveableRef"
-        :target="'.target'"
-        :draggable="true"
-        :throttleDrag="throttleDrag"
-        :edgeDraggable="edgeDraggable"
-        :startDragRotate="startDragRotate"
-        :throttleDragRotate="throttleDragRotate"
-        @dragStart="onDragStart"
-        @drag="onDrag"
-        @dragEnd="onDragEnd"
-      >
-        <img class="Group_5 sticker85" src="../assets/Group-5.png" />
-      </Moveable>
-      <Moveable
-        class="moveableContainer"
-        v-if="isNineth"
-        ref="moveableRef"
-        :target="'.target'"
-        :draggable="true"
-        :throttleDrag="throttleDrag"
-        :edgeDraggable="edgeDraggable"
-        :startDragRotate="startDragRotate"
-        :throttleDragRotate="throttleDragRotate"
-        @dragStart="onDragStart"
-        @drag="onDrag"
-        @dragEnd="onDragEnd"
-      >
-        <img
-          class="Group_9 sticker70"
-          v-show="isNineth"
-          src="../assets/Group-9.png"
-        />
-      </Moveable>
-      <Moveable
-        class="moveableContainer"
-        v-if="isThird"
-        ref="moveableRef"
-        :target="'.target'"
-        :draggable="true"
-        :throttleDrag="throttleDrag"
-        :edgeDraggable="edgeDraggable"
-        :startDragRotate="startDragRotate"
-        :throttleDragRotate="throttleDragRotate"
-        @dragStart="onDragStart"
-        @drag="onDrag"
-        @dragEnd="onDragEnd"
-        style="z-index: 50;"
-      >
-        <img class="Group_3 sticker80" src="../assets/Group-3.png" />
-      </Moveable>
-      <Moveable
-        class="moveableContainer"
-        v-if="isFourth"
-        ref="moveableRef"
-        :target="'.target'"
-        :draggable="true"
-        :throttleDrag="throttleDrag"
-        :edgeDraggable="edgeDraggable"
-        :startDragRotate="startDragRotate"
-        :throttleDragRotate="throttleDragRotate"
-        @dragStart="onDragStart"
-        @drag="onDrag"
-        @dragEnd="onDragEnd"
-      >
-        <img class="Group_4 sticker60" src="../assets/Group-4.png" />
-      </Moveable>
-      <Moveable
-        class="moveableContainer"
-        v-if="isEighth"
-        ref="moveableRef"
-        :target="'.target'"
-        :draggable="true"
-        :throttleDrag="throttleDrag"
-        :edgeDraggable="edgeDraggable"
-        :startDragRotate="startDragRotate"
-        :throttleDragRotate="throttleDragRotate"
-        @dragStart="onDragStart"
-        @drag="onDrag"
-        @dragEnd="onDragEnd"
-      >
-        <img class="Group_8 sticker60" src="../assets/Group-8.png" />
-      </Moveable>
-      <Moveable
-        class="moveableContainer"
-        v-if="isSixth"
-        ref="moveableRef"
-        :target="'.target'"
-        :draggable="true"
-        :throttleDrag="throttleDrag"
-        :edgeDraggable="edgeDraggable"
-        :startDragRotate="startDragRotate"
-        :throttleDragRotate="throttleDragRotate"
-        @dragStart="onDragStart"
-        @drag="onDrag"
-        @dragEnd="onDragEnd"
-      >
-        <img class="Group_6 sticker65" src="../assets/Group-6.png" />
-      </Moveable>
-      <Moveable
-        class="moveableContainer"
-        v-if="isSeventh"
-        ref="moveableRef"
-        :target="'.target'"
-        :draggable="true"
-        :throttleDrag="throttleDrag"
-        :edgeDraggable="edgeDraggable"
-        :startDragRotate="startDragRotate"
-        :throttleDragRotate="throttleDragRotate"
-        @dragStart="onDragStart"
-        @drag="onDrag"
-        @dragEnd="onDragEnd"
-      >
-        <img class="Group_7 sticker80" src="../assets/Group-7.png" />
-      </Moveable>
+      <img
+        class="Group_2 sticker85"
+        src="../assets/Group-2.png"
+        :style="{ transform: `translateX(${position}px)` }"
+        ref="rect1"
+        @mousedown="handleMouseDown"
+        @touchstart="handleTouchStart"
+      />
+      <img
+        class="Group_5 sticker85"
+        src="../assets/Group-5.png"
+        :style="{ transform: `translateX(${position}px)` }"
+        ref="rect2"
+        @mousedown="handleMouseDown"
+        @touchstart="handleTouchStart"
+      />
+      <img
+        class="Group_9 sticker70"
+        v-show="isNineth"
+        src="../assets/Group-9.png"
+        :style="{ transform: `translateX(${position}px)` }"
+        ref="rect3"
+        @mousedown="handleMouseDown"
+        @touchstart="handleTouchStart"
+      />
+      <img
+        class="Group_3 sticker80"
+        src="../assets/Group-3.png"
+        :style="{ transform: `translateX(${position}px)` }"
+        ref="rect4"
+        @mousedown="handleMouseDown"
+        @touchstart="handleTouchStart"
+      />
+      <img
+        class="Group_4 sticker60"
+        src="../assets/Group-4.png"
+        :style="{ transform: `translateX(${position}px)` }"
+        ref="rect5"
+        @mousedown="handleMouseDown"
+        @touchstart="handleTouchStart"
+      />
+      <img
+        class="Group_8 sticker60"
+        src="../assets/Group-8.png"
+        :style="{ transform: `translateX(${position}px)` }"
+        ref="rect6"
+        @mousedown="handleMouseDown"
+        @touchstart="handleTouchStart"
+      />
+      <img
+        class="Group_6 sticker65"
+        src="../assets/Group-6.png"
+        :style="{ transform: `translateX(${position}px)` }"
+        ref="rect7"
+        @mousedown="handleMouseDown"
+        @touchstart="handleTouchStart"
+      />
+      <img
+        class="Group_7 sticker80"
+        src="../assets/Group-7.png"
+        :style="{ transform: `translateX(${position}px)` }"
+        ref="rect8"
+        @mousedown="handleMouseDown"
+        @touchstart="handleTouchStart"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import Vue2TouchEvents from "vue2-touch-events";
-import Moveable from "vue-moveable";
 export default {
-  components: {
-    Moveable,
-    Vue2TouchEvents,
-  },
+  components: {},
   data() {
-    const containerScale = 1;
-    const throttleDrag = 1;
-    const edgeDraggable = false;
-    const startDragRotate = 0;
-    const throttleDragRotate = 0;
-    const xInputRef = null;
-    const yInputRef = null;
-    const moveableRef = null;
-    const requestCallbacks = (() => {
-      function request() {
-        moveableRef.request(
-          "draggable",
-          {
-            x: parseInt(xInputRef.value),
-            y: parseInt(yInputRef.value),
-          },
-          true
-        );
-      }
-      return {
-        onInput(e) {
-          const ev = e.nativeEvent || e;
-          if (typeof ev.data === "undefined") {
-            request();
-          }
-        },
-        onKeyUp(e) {
-          e.stopPropagation();
-          if (e.keyCode === 13) {
-            request();
-          }
-        },
-      };
-    })();
-
     return {
-      // moveable: {
-      //   draggable: true,
-      //   throttleDrag: 0,
-      // },
+      position: 0,
+      startX: 0,
+      currentX: 0,
+      isDragging: false,
       isActive: true,
-
-      isSecond: true,
-      isThird: true,
-      isFourth: true,
-      isFifth: true,
-      isSixth: true,
-      isSeventh: true,
-      isEighth: true,
-      isNineth: true,
-
-      xStart: 0,
-      xEnd: 0,
-      yStart: 0,
-      yEnd: 0,
-      zIndex: 0,
-
-      containerScale,
-      throttleDrag,
-      edgeDraggable,
-      startDragRotate,
-      throttleDragRotate,
-      moveableRef,
-      requestCallbacks,
     };
   },
 
@@ -229,36 +98,70 @@ export default {
     clickedOutside() {
       this.isActive = false;
     },
-    onDrag(e) {
-      e.target.style.transform = e.transform;
-      e.transform ? (this.isActive = false) : false;
-      console.log(this.zIndex);
+    handleMouseDown(event) {
+      this.startX = event.clientX;
+      this.activeRect = event.target;
+      window.addEventListener("mousemove", this.handleMouseMove);
+      window.addEventListener("mouseup", this.handleMouseUp);
     },
-    onDragStart(e) {
-      requestAnimationFrame(() => {
-        this.xStart = e.clientX;
-        this.yStart = e.clientY;
-        this.zIndex = e.target.style.zIndex;
-      });
+    handleMouseMove(event) {
+      const diffX = event.clientX - this.startX;
+      this.currentX = diffX;
+
+      this.activeRect.style.transform = `translateX(${this.currentX}px)`;
     },
-    onDragEnd(e) {
-      requestAnimationFrame(() => {
-        this.xEnd = e.clientX;
-        this.yEnd = e.clientY;
-        let rule1 = this.xEnd - this.xStart;
-        let rule2 = this.yEnd - this.yStart;
-        if (rule1 > 100 || rule1 < -100 || rule2 > 100 || rule2 < -100) {
-          e.target.remove();
-        }
-        if (this.$refs.frontContainer.hasChildNodes() == false) {
-          this.$refs.mainContainer.remove();
-        }
-      });
+    handleMouseUp() {
+      const rectBounds = this.activeRect.getBoundingClientRect();
+      const windowBounds = document.documentElement.getBoundingClientRect();
+
+      if (
+        rectBounds.left + this.currentX > windowBounds.right ||
+        rectBounds.right + this.currentX < windowBounds.left
+      ) {
+        this.activeRect.remove();
+      } else {
+        this.activeRect.style.transform = "";
+      }
+
+      this.startX = 0;
+      this.currentX = 0;
+      this.activeRect = null;
+
+      window.removeEventListener("mousemove", this.handleMouseMove);
+      window.removeEventListener("mouseup", this.handleMouseUp);
     },
-  },
-  computed: {},
-  mounted() {
-    this.moveableRef = this.$refs.moveableRef;
+    handleTouchStart(event) {
+      this.startX = event.touches[0].clientX;
+      this.activeRect = event.target;
+      window.addEventListener("touchmove", this.handleTouchMove);
+      window.addEventListener("touchend", this.handleTouchEnd);
+    },
+    handleTouchMove(event) {
+      const diffX = event.touches[0].clientX - this.startX;
+      this.currentX = diffX;
+
+      this.activeRect.style.transform = `translateX(${this.currentX}px)`;
+    },
+    handleTouchEnd() {
+      const rectBounds = this.activeRect.getBoundingClientRect();
+      const windowBounds = document.documentElement.getBoundingClientRect();
+
+      if (
+        rectBounds.left + this.currentX > windowBounds.right ||
+        rectBounds.right + this.currentX < windowBounds.left
+      ) {
+        this.activeRect.remove();
+      } else {
+        this.activeRect.style.transform = "";
+      }
+
+      this.startX = 0;
+      this.currentX = 0;
+      this.activeRect = null;
+
+      window.removeEventListener("touchmove", this.handleTouchMove);
+      window.removeEventListener("touchend", this.handleTouchEnd);
+    },
   },
 };
 </script>
@@ -266,7 +169,6 @@ export default {
 <style>
 .moveableContainer img {
   z-index: 1000;
-
 }
 .moveable-line {
   display: none !important;

@@ -1,20 +1,19 @@
 <template>
   <div class="main">
-    <!-- <background-layer></background-layer> -->
-    <test></test>
+    <background-layer></background-layer>
+      <!-- <Rectangle /> -->
   </div>
 </template>
 
 <script>
-// import BackgroundLayer from './components/BgrLayer.vue';
-import Test from './components/test.vue';
-
+import BackgroundLayer from "./components/BgrLayer.vue";
+import Rectangle from "./components/test.vue";
 
 export default {
   name: "App",
   components: {
-    // BackgroundLayer,
-    Test,
+    BackgroundLayer,
+    Rectangle,
   },
 };
 </script>
@@ -23,9 +22,8 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-
-
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 .main {
   box-sizing: border-box;
