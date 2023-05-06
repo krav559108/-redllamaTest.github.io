@@ -39,7 +39,7 @@
 
       <!-- Погладить рубашки  -->
       <img
-        class="Group_9 sticker70"
+        class="Group_9 sticker75"
         src="../assets/Group-9.png"
         :style="{ transform: `translateX(${position}px)` }"
         ref="rect3"
@@ -75,7 +75,7 @@
 
       <!-- Заехать на почту  -->
       <img
-        class="Group_8 sticker60"
+        class="Group_8 sticker65"
         src="../assets/Group-8.png"
         :style="{ transform: `translateX(${position}px)` }"
         ref="rect6"
@@ -87,7 +87,7 @@
 
       <!-- Испечь пирог для гостей  -->
       <img
-        class="Group_6 sticker65"
+        class="Group_6 sticker60"
         src="../assets/Group-6.png"
         :style="{ transform: `translateX(${position}px)` }"
         ref="rect7"
@@ -99,7 +99,7 @@
 
       <!-- Полить растения соседей  -->
       <img
-        class="Group_7 sticker80"
+        class="Group_7 sticker60"
         src="../assets/Group-7.png"
         :style="{ transform: `translateX(${position}px)` }"
         ref="rect8"
@@ -233,6 +233,9 @@ img {
 .sticker80 {
   width: 80%;
 }
+.sticker75 {
+  width: 70%;
+}
 .sticker70 {
   width: 70%;
 }
@@ -300,13 +303,15 @@ img {
   top: 8%;
   z-index: 17;
   width: 60%;
+  rotate: 20deg;
 }
 .Group_5 {
   position: absolute;
   left: 15%;
-  bottom: 10%;
+  bottom: 6%;
   z-index: 18;
   width: 65%;
+  rotate: -20deg;
 }
 .Group_9 {
   position: absolute;
@@ -322,13 +327,13 @@ img {
 .Group_4 {
   position: absolute;
   left: 0;
-  top: 27%;
+  top: 30%;
   z-index: 14;
 }
 .Group_8 {
   position: absolute;
   right: 0;
-  top: 30%;
+  top: 35%;
   z-index: 13;
 }
 .Group_6 {

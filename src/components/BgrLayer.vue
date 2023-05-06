@@ -4,17 +4,17 @@
       <img
         class="catchPhrase"
         src="../assets/catchPhrase.png"
-        draggable="false"
+
       />
-      <img class="logo pb-10" src="../assets/logo.png" draggable="false" />
-      <img class="packs pb-10" src="../assets/packs.png" draggable="false" />
+      <img class="logo pb-10" src="../assets/logo.png"  />
+      <img class="packs pb-10" src="../assets/packs.png"  />
       <img
         class="btn pb-10"
         src="../assets/btn.png"
         @click="redirect"
-        draggable="false"
+
       />
-      <img class="rules" src="../assets/rules.png" draggable="false" />
+      <img class="rules" src="../assets/rules.png" />
     </div>
     <front-layer ></front-layer>
   </div>
@@ -70,7 +70,6 @@ img {
   justify-content: center;
 
   max-width: 800px;
-  max-height: 1200px;
 }
 .bgr {
   width: 100%;
@@ -88,6 +87,7 @@ img {
   object-fit: contain;
 }
 .rules {
+
   object-fit: contain;
   transform: scaleX(120%);
 }
